@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>FaceMorph</title>
+		
+		<!-- Bootstrap4 Javascript Files -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+		<!-- Bootstrap CSS Style Sheet -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+		<!-- Canvas JS pie chart source -->
+		<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+		<!-- Sourcing JS for Datatables Library -->
+		<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" type="text/javascript"></script>
+		<script src="https://cdn.datatables.net/scroller/2.0.1/js/dataTables.scroller.min.js" type="text/javascript"></script>
+		<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+		<script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+		
+		<!-- Local-Sourced JS and CSS Files, note that django variables coming from api_routes.py -->
+		<script type='text/javascript'>{{ js_source }}</script>
+		<style>{{ css_source }} </style>
+
+		<!-- Cloudfare Javascript Files -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	</head>
+
+	<body>
+
+		<!-- Navigation Bar -->
+		<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top" style="background-color: #ffffff">
+			<div class="container-fluid" style="background-color: #ffffff">
+				<a id='facemorph-navbar-logo' class="navbar-brand colory" href="#"><img src="{{ url_for('static',filename='facemorph_logo2.png') }}" alt="" class="hvr-grow"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive" style="background-color: #ffffff">
+					<ul class="navbar-nav ml-auto" style="background-color:#ffffff;">
+						<li id='navbar-home-li' class="nav-item active" style="background-color:#ffffff;">
+							<a href="#" id='navbar-home-button' class="nav-link hvr-grow" style="background-color:#ffffff;">Home</a>
+						</li>
+						<li id='navbar-history-li' class="nav-item">
+							<a href="#" id='navbar-history-button' class="nav-link hvr-grow">History</a>
+						</li>
+						<li id='navbar-faces-li' class="nav-item">
+							<a href="#" id='navbar-faces-button' class="nav-link hvr-grow">Faces</a>
+						</li>
+						<li id='navbar-contact-li' class="nav-item">
+							<a href="#" id='navbar-contact-button'class="nav-link hvr-grow" onclick="">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- END Navigation bar -->
+
+		<!--- Image Carousel Slider -->
+		<div id="home-slides" class="carousel slide" data-ride="carousel" style='background-color:black'>
+			
+			<!-- Line indicators under slides to show which slide you're on. Comment-out to disable user selection  -->
+			<ul class="carousel-indicators">
+				<li data-target="#home-slides" data-slide-to="0" id='carousel-slide1' class="active"></li>
+			</ul> 
+
+			<div class="carousel-inner">
+
+				<!-- First Image in Carousel -->
+				<div id='home-slide1' class="carousel-item active">
+					<img src="{{ url_for('static',filename='facemorph.gif') }}" style='padding-right:3%;padding-top'>
+					<div class="carousel-caption"><strong><h1 class="" style = "color:tan;"><u>FaceMorph</u></h1></strong></div>
+					<div class="carousel-caption">
+						<br><br><br><br>
+						<h3><u>CS 395 Final Project</u></h3>
+						<br>
+						<button id='carousel-learn-more-button' type="button" class="btn btn-primary-light btn-lg hvr-grow">Learn More</button>
+						<button id='carousel-team-button' type="button" class="btn btn-primary btn-lg hvr-grow" onclick="showFacesPage()">Let's Get Started</button>
+						<div class="col-lg-12"><a href="#" onclick="prepareNickPage()" class=""><h4 style="color:#ffffff" id='nick-hella-button' class='hvr-grow'>Nick Hella</h4></a><br><h7>University of Vermont</h7></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END Image Carousel Slider -->
+
+		<!-- History -->
+		<div id='history-page'> </div>
+		<!-- END History Section-->
+			  
+		<!--- Faces -->
+		<div id='faces-page'></div>
+		<!-- END Faces Section -->
+
+		<!-- Contact  -->
+		<div id='profile'></div>
+		<!-- END Profile Div -->
+
+		<!-- Footer Section -->
+		<div id='footer-section'>
+			<div class="container-fluid padding">
+				<div class="row text-center padding">
+					<div class="col-12">
+<!-- 						<h2 style="color:#6648b1;">Connect:</h2>
+ -->					</div>
+				</div>
+				<!--- Footer -->
+				<footer>
+					<div class="container-fluid padding">
+						<center><h2 style="color:#6648b1;">Connect:</h2></center>
+						<div class="row text-center">
+							<div class="col-md-3">
+								<hr class="light">
+								<h5>Developer</h5>
+								<hr class="light">
+								<a href="#" onclick="prepareNickPage()"><p>Nick Hella</p></a>
+							</div>
+							<div class="col-md-3">
+								<hr class="light">
+								<h5>Email</h5>
+								<hr class="light">
+								<a href="mailto:nicholas.hella@uvm.edu"><p>nicholas.hella@uvm.edu</p></a>
+							</div>
+							<div class="col-md-3">
+								<hr class="light">
+								<h5>Mobile</h5>
+								<hr class="light">
+								<p>802 734 4140</p>
+							</div>
+							<div class="col-md-3">
+								<hr class="light">
+								<h5>Location</h5>
+								<hr class="light">
+								<p>Essex, Vermont, 05452</p>
+							</div>
+							<div class="col-12">
+								<hr class="light-100">
+								<h5>&copy; facemorph.com</h5>
+								<h7>University of Vermont</h7>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+		<!-- END Footer Section -->
+	</body>
+</html>

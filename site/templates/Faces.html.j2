@@ -1,0 +1,172 @@
+	<!--- Welcome Section -->
+	<div class="container-fluid padding">
+		<div class="row welcome text-center">
+			<hr>
+			<div class="col-12">
+				<h3 style="color:#6648b1;">Faces</h3>
+				<br>
+				<h7 id='faces-message' style="color: #888;"> Click a face from the faces below to select your first choice </h7>
+				<br>
+				<h7 id='faces-page-tracker' style="color: #888;"> Page 1 of 4 </h7>
+				<div id='face-grid-back-button-div' class='col-lg-12'>
+					<div>
+						<button id='faces-grid-back-button' type="button" class="btn btn-primary btn-lg hvr-grow">Back</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr class="my-4">
+	</div>
+
+	<!-- Face Grid 1 -->
+	<div id='face-grid-1' class='col-lg-12'>
+
+		<div class="row padding">
+
+			<div class="col-md-4">
+				<div class="card">
+					<a id='select-donald-trump-card-1' href="#" onclick=""><img class="card-img-top" src="{{ url_for('static',filename='donald_trump.jpg') }}"></a>
+					<div class="card-body">
+						<h4 class="card-title">Donald Trump</h4>
+						<p class="card-text">45th United States President</p>
+						<center>
+							<a id='select-donald-trump-1' class="btn btn-outline-secondary hvr-grow">Select</a>
+						</center>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card">
+					<a id='select-hillary-clinton-card-1' href="#" onclick=""><img class="card-img-top" src="{{ url_for('static',filename='hillary_clinton.jpg') }}"></a>
+					<div class="card-body">
+						<h4 class="card-title">Hillary Clinton</h4>
+						<p class="card-text">Former United States Secretary of State</p>
+						<center>
+							<a id='select-hillary-clinton-1' class="btn btn-outline-secondary hvr-grow">Select</a>
+						</center>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card">
+					<a id='select-ted-cruz-card-1' href="#" onclick=""><img class="card-img-top" src="{{ url_for('static',filename='ted_cruz.jpg') }}"></a>
+					<div class="card-body">
+						<h4 class="card-title">Ted Cruz</h4>
+						<p class="card-text">United States Senator</p>
+						<center>
+							<a id='select-ted-cruz-1' class="btn btn-outline-secondary hvr-grow">Select</a>
+						</center>
+					</div>
+				</div>
+			</div>
+			<hr class="my-4">
+		</div>
+	</div>
+	<!-- END Face Grid 1 -->
+
+	<!-- Face Grid 2 -->
+	<div id='face-grid-2' class='col-lg-12'>
+
+		<div class="row padding">
+
+			<div class="col-md-4">
+				<div class="card">
+					<a id='select-donald-trump-card-2' href="#" onclick=""><img class="card-img-top" src="{{ url_for('static',filename='donald_trump.jpg') }}"></a>
+					<div class="card-body">
+						<h4 class="card-title">Donald Trump</h4>
+						<p class="card-text">45th United States President</p>
+						<center>
+							<a id='select-donald-trump-2' class="btn btn-outline-secondary hvr-grow">Select</a>
+						</center>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card">
+					<a id='select-hillary-clinton-card-2' href="#" onclick=""><img class="card-img-top" src="{{ url_for('static',filename='hillary_clinton.jpg') }}"></a>
+					<div class="card-body">
+						<h4 class="card-title">Hillary Clinton</h4>
+						<p class="card-text">Former United States Secretary of State</p>
+						<center>
+							<a id='select-hillary-clinton-2' class="btn btn-outline-secondary hvr-grow">Select</a>
+						</center>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="card">
+					<a id='select-ted-cruz-card-2' href="#" onclick=""><img class="card-img-top" src="{{ url_for('static',filename='ted_cruz.jpg') }}"></a>
+					<div class="card-body">
+						<h4 class="card-title">Ted Cruz</h4>
+						<p class="card-text">United States Senator</p>
+						<center>
+							<a id='select-ted-cruz-2' class="btn btn-outline-secondary hvr-grow">Select</a>
+						</center>
+					</div>
+				</div>
+			</div>
+			<hr class="my-4">
+		</div>
+	</div>
+	<!-- END Face Grid 2 -->
+
+	
+	<!--- Image Carousel Slider -->
+	<div id="slides" class="carousel slide" data-ride="carousel" style='background-color:black'>
+		<!-- Line indicators under slides to show which slide you're on. Comment-out to disable user selection  -->
+		<ul class="carousel-indicators">
+			<li data-target="#slides" data-slide-to="0" id='carousel-slide1' class="active"></li>
+			<li data-target="#slides" data-slide-to="1" id='carousel-slide2' ></li>
+			<li data-target="#slides" data-slide-to="2" id='carousel-slide3' ></li>
+		</ul> 
+		<div class="carousel-inner">
+
+			<!-- First Image in Carousel -->
+			<div id='slide1' class="carousel-item active" style='background-color:black'>
+				<div class="carousel-caption">
+					<center><h1 class="display-2">Face Morph</h1></center>
+					<br>
+					<button id='carousel-facemorph-button' type="button" class="btn btn-outline-secondary btn-lg hvr-grow" style='color:white;'>Select</button>
+				</div>
+			</div>
+
+			<!-- Second Image -->
+			<div id='slide2' class="carousel-item" style='background-color:blue'>
+				<div class="carousel-caption">
+					<center><h1 class="display-2">Face Swap</h1></center>
+					<br>
+					<button id='carousel-team-button' type="button" class="btn btn-outline-secondary btn-lg hvr-grow" style='color:white;'>Select</button>
+				</div>
+			</div>
+
+			<!-- Third Image -->
+			<div id='slide3' class="carousel-item" style='background-color:purple'>
+				<div class="carousel-caption">
+					<center><h1 class="display-2">Funny Mirrors</h1></center>
+					<br>
+					<select id="funny-mirrors-img-selector" class='dropdown'>
+					  <option value="img1" selected>Image 1</option>
+					  <option value="img2">Image 2</option>
+					</select>
+					<br>
+					<br>
+					<button id='carousel-team-button' type="button" class="btn btn-outline-secondary btn-lg hvr-grow" style='color:white;'>Select</button>
+				</div>						
+			</div>
+		</div>
+	</div>
+	<!-- END Image Carousel Slider -->
+
+	<!-- FaceMorph Result -->
+	<div id='faceMorph_result'>
+		<div id='spinner'>
+			<center><div id='loader' class="loader"></div></center>
+		</div>
+
+		<div id='result_img'></div>
+	</div>
+	<!-- END FaceMorph Result -->
