@@ -120,7 +120,7 @@ class FaceMorph:
                 FaceMorph.morphTriangle(img1, img2, imgMorph, t1, t2, t, alpha)        
 
         # Name of saved file
-        filename = "output_image.jpg"
+        filename = "output_image." + str(time.time()) + ".jpg"
 
         # Doesn't work for some reason?
         # # Using cv2.imwrite() method
@@ -146,3 +146,5 @@ class FaceMorph:
 
         # Moving saved image to static folder
         move(this_scripts_path+"/../../"+filename, this_scripts_path+"/../../static/")
+
+        return filename

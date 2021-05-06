@@ -175,10 +175,9 @@ function face_page_back_button() {
 }
 
 function face_morph() {
-	console.log("You selected face morph effect with");
-	console.log("Img 1: " + img_1);
-	console.log("Img 2: " + img_2);
-
+	//console.log("You selected face morph effect with");
+	//console.log("Img 1: " + img_1);
+	//console.log("Img 2: " + img_2);
 	$('#face-grid-1').hide();
 	$('#face-grid-2').hide();
 	$('#slides').hide();
@@ -189,23 +188,20 @@ function face_morph() {
 	$('#faces-message').html('And the results are in!');
 	window.scrollTo(0, 0); // xcoordinate,ycoordinate -- scroll to top of page
 	cur_page = 4;
-
 	$.ajax({
 		url: "/face-morph",
 		dataType: "json",
 		type: "POST",
 		data: {"img1": img_1, "img2": img_2},
 		success: function(result){
-			console.log("Hit success branch out of face morph ajax call :) ");
+			//console.log("Hit success branch out of face morph ajax call :) ");
+			//console.log(result)
 			$('#spinner').hide();
 			$('#loader').hide();
-			var html_string = '<img src="{{ url_for(\'static\',filename=\'output_image.jpg\') }}">';
-			console.log(html_string);
+			//var html_string = '<img src="{{ url_for(\'static\',filename=\'output_image.jpg\') }}">';
+			//console.log(html_string);
 			//$("#result_img").html('<img src="{{ url_for(\'static\',filename=\'output_image.jpg\') }}" align="absmiddle" ">');
-			$("#result_img").html('<center><img src="../static/output_image.jpg"></center>');
-
-			//<img src="{{ url_for('static',filename='output_image.jpg') }}">
+			$("#result_img").html('<center><img src="../static/'+result+'"></center>');
 		}
 	});
-
 }
