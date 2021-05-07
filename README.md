@@ -1,5 +1,5 @@
 # FaceMorph 
--- CS 395 Final Project 
+CS 395 Final Project 
 -- Nick Hella
 -- Univeristy of Vermont
 -- 
