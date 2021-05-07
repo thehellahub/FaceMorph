@@ -116,20 +116,25 @@
 
 	
 	<!--- Image Carousel Slider -->
-	<div id="slides" class="carousel slide" data-ride="carousel" style='background-color:black'>
+	<div id="slides" class="carousel slide" data-ride="carousel" style='background-color:black;height:100%;padding-bottom:2%;'>
 		<!-- Line indicators under slides to show which slide you're on. Comment-out to disable user selection  -->
 		<ul class="carousel-indicators">
 			<li data-target="#slides" data-slide-to="0" id='carousel-slide1' class="active"></li>
 			<li data-target="#slides" data-slide-to="1" id='carousel-slide2' ></li>
 			<li data-target="#slides" data-slide-to="2" id='carousel-slide3' ></li>
 		</ul> 
-		<div class="carousel-inner">
+		<div class="carousel-inner" style=''>
 
 			<!-- First Image in Carousel -->
 			<div id='slide1' class="carousel-item active" style='background-color:black'>
 				<div class="carousel-caption">
-					<center><h1 class="display-2">Face Morph</h1></center>
+					<center><h2 class="display-2">Face Morph</h2></center>
 					<br>
+					<div class="slidecontainer">
+					  <p>Select Opacity:</p>
+					  <input type="range" min="1" max="100" value="50" class="slider-pic" id="myRange">
+					  <p>Value: <span id="demo"></span></p>
+					</div>
 					<button id='carousel-facemorph-button' type="button" class="btn btn-outline-secondary btn-lg hvr-grow" style='color:white;'>Select</button>
 				</div>
 			</div>
@@ -137,26 +142,41 @@
 			<!-- Second Image -->
 			<div id='slide2' class="carousel-item" style='background-color:blue'>
 				<div class="carousel-caption">
-					<center><h1 class="display-2">Face Swap</h1></center>
+					<center><h2 class="display-2">Face Swap</h2></center>
 					<br>
-					<button id='carousel-team-button' type="button" class="btn btn-outline-secondary btn-lg hvr-grow" style='color:white;'>Select</button>
+					<button id='carousel-faceswap-button' type="button" class="btn btn-outline-secondary btn-lg hvr-grow" style='color:white;'>Select</button>
 				</div>
 			</div>
 
 			<!-- Third Image -->
-			<div id='slide3' class="carousel-item" style='background-color:purple'>
+			<div id='slide3' class="carousel-item" style='background-color:purple;'>
 				<div class="carousel-caption">
-					<center><h1 class="display-2">Funny Mirrors</h1></center>
-					<br>
+
+					<center><h2 class="display-2">Funny Mirrors</h2></center>
+
+					<h5 style='padding-top:10px;'>Select one of your images:</h5>
 					<select id="funny-mirrors-img-selector" class='dropdown'>
-					  <option value="img1" selected>Image 1</option>
-					  <option value="img2">Image 2</option>
+					  <option value="img1" selected >Image 1</option>
+					  <option value="img2"			>Image 2</option>
 					</select>
-					<br>
-					<br>
-					<button id='carousel-team-button' type="button" class="btn btn-outline-secondary btn-lg hvr-grow" style='color:white;'>Select</button>
+
+					<h5 style='padding-top:10px;'>Select an effect:</h5>
+					<select id="funny-mirrors-effect-selector" class='dropdown'>
+					  <option value="effect1" selected>1</option>
+					  <option value="effect2"		  >2</option>
+					  <option value="effect3"		  >3</option>
+					  <option value="effect4"		  >4</option>
+					  <option value="effect5"		  >5</option>
+					  <option value="effect6"		  >6</option>
+					  <option value="effect7"		  >7</option>
+					  <option value="effect8"		  >8</option>
+					</select>
+					<br><br>
+					<button id='carousel-funnymirrors-button' type="button" class="btn btn-outline-secondary btn-lg hvr-grow" style='color:white;'>Select</button>
+
 				</div>						
 			</div>
+
 		</div>
 	</div>
 	<!-- END Image Carousel Slider -->

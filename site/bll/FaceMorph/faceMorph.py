@@ -12,7 +12,8 @@ class FaceMorph:
     # Read points from text file
     def readPoints(path) :
         # Create an array of points.
-        points = [];
+        points = []
+
         # Read points
         with open(path) as file :
             for line in file :
@@ -54,7 +55,7 @@ class FaceMorph:
 
         # Get mask by filling triangle
         mask = np.zeros((r[3], r[2], 3), dtype = np.float32)
-        cv2.fillConvexPoly(mask, np.int32(tRect), (1.0, 1.0, 1.0), 16, 0);
+        cv2.fillConvexPoly(mask, np.int32(tRect), (1.0, 1.0, 1.0), 16, 0)
 
         # Apply warpImage to small rectangular patches
         img1Rect = img1[r1[1]:r1[1] + r1[3], r1[0]:r1[0] + r1[2]]
@@ -72,17 +73,17 @@ class FaceMorph:
 
         return img
 
-    def main(filename1,filename2):
+    def main(filename1,filename2,opacity):
 
         this_scripts_path = os.path.dirname(os.path.realpath(__file__))
 
         filename1 += '.jpg'
         filename2 += '.jpg'
-        alpha = 0.5
+        alpha = float(opacity)/100
         
         # Read images
-        img1 = cv2.imread(this_scripts_path + "/" + filename1);
-        img2 = cv2.imread(this_scripts_path + "/" + filename2);
+        img1 = cv2.imread(this_scripts_path + "/" + filename1)
+        img2 = cv2.imread(this_scripts_path + "/" + filename2)
         
         # Convert Mat to float data type
         img1 = np.float32(img1)
@@ -91,7 +92,7 @@ class FaceMorph:
         # Read array of corresponding points
         points1 = FaceMorph.readPoints(this_scripts_path + "/" + filename1 + '.txt')
         points2 = FaceMorph.readPoints(this_scripts_path + "/" + filename2 + '.txt')
-        points = [];
+        points = []
 
         # Compute weighted average point coordinates
         for i in range(0, len(points1)):
@@ -141,8 +142,7 @@ class FaceMorph:
                 #Do what you want with the file
                 os.remove(fl)
         except Exception as e:
-            print(e)
-            
+            print(e) 
 
         # Moving saved image to static folder
         move(this_scripts_path+"/../../"+filename, this_scripts_path+"/../../static/")

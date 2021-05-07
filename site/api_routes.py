@@ -74,15 +74,20 @@ def load_page_html():
 def face_morph():	
 	img1 = request.form["img1"]
 	img2 = request.form["img2"]
-	print("\n\nSuccessfully hitting face-morph route")
-	return json.dumps(LogicLayer.face_morph(img1,img2))
+	opacity = request.form["opacity"]
+	return json.dumps(LogicLayer.face_morph(img1,img2,opacity))
 
+@webapp.route("/face-swap", methods=["POST"])
+def face_swap():	
+	img1 = request.form["img1"]
+	img2 = request.form["img2"]
+	return json.dumps(LogicLayer.face_swap(img1,img2))
 
-# @webapp.route('/receiver', methods = ['POST'])
-# def worker():
-# 	data = request.get_json(my_json)
-# 	result = ''
-
+@webapp.route("/funny-mirrors", methods=["POST"])
+def funny_mirrors():	
+	img = request.form["img"]
+	effect = request.form["effect"]
+	return json.dumps(LogicLayer.funny_mirrors(img,effect))
 
 @webapp.route('/download-nhella-resume',methods = ['GET'])
 def download_nhella_resume():

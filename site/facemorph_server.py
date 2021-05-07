@@ -1,6 +1,6 @@
 import setproctitle
 from gevent.pywsgi import WSGIServer
-from api_routes import webapp
+from api_routes import webapp # where the magic happens
 from flask import Flask, redirect, url_for, render_template, Blueprint, session, app, flash
 import os
 
@@ -23,6 +23,6 @@ def main():
 	# app.config['SERVER_NAME'] = 'facemorph.com:5000'	# only for running on server
 	# app.run(debug=debug)
 
-	# Calling route "/" in api_routes.py 
+	# Magically calling route "/" in api_routes.py (O.o)
 
 main()
