@@ -133,7 +133,7 @@ function show_face_grid_1() {
 	$('#slides').hide();
 	$('#face-grid-1').fadeIn("Slow");
 	$('#faces-page-tracker').html('Page 1 of 4');
-	$('#faces-message').html('Click a face from the faces below to select your first choice');
+	$('#faces-message').html('Click a face from the faces below to select your first victim');
 	window.scrollTo(0, 0); // xcoordinate,ycoordinate -- scroll to top of page
 	cur_page = 1;	
 }
@@ -147,7 +147,7 @@ function show_face_grid_2() {
 	$('#face-grid-2').fadeIn("slow");
 	$('#face-grid-back-button-div').fadeIn('slow');
 	$('#faces-page-tracker').html('Page 2 of 4');
-	$('#faces-message').html('Click a face from the faces below to select your second choice');
+	$('#faces-message').html('Click a face from the faces below to select your second victim');
 	window.scrollTo(0, 0); // xcoordinate,ycoordinate -- scroll to top of page
 	cur_page = 2;
 }

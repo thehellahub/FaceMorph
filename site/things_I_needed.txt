@@ -4,8 +4,6 @@ pip install ipython
 pip install requests
 pip install BeautifulSoup
 
-anaconda3 python package
-
 
 
 # for custom domain setting
