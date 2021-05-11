@@ -10,6 +10,7 @@ INSTRUCTIONS:
 Within the "site" directory are two files:
 
 1.) things_I_needed.txt
+
 2.) facemorph_server.py
 
 REQUIREMENTS: 
