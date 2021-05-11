@@ -120,8 +120,6 @@ class FaceSwap:
         
     def main(filename1,filename2) :
 
-        print("\n\nfoo: Inside funny mirors main\n\n")
-
         this_scripts_path = os.path.dirname(os.path.realpath(__file__))
         
         # Make sure OpenCV is version 3.0 or above
