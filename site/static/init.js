@@ -27,6 +27,7 @@ function prepare_page_load() {
 				$('#navbar-history-li').removeClass('active');
 				$('#navbar-faces-li').removeClass('active');
 				$('#navbar-contact-li').removeClass('active');
+				$('#navbar-resources-li').removeClass('active');
 				show_home();
 			});
 
@@ -37,6 +38,7 @@ function prepare_page_load() {
 				$('#navbar-history-li').removeClass('active');
 				$('#navbar-faces-li').removeClass('active');
 				$('#navbar-contact-li').removeClass('active');
+				$('#navbar-resources-li').removeClass('active');
 				show_home();
 			});
 
@@ -46,6 +48,7 @@ function prepare_page_load() {
 				$('#navbar-history-li').addClass('active');
 				$('#navbar-faces-li').removeClass('active');
 				$('#navbar-contact-li').removeClass('active');
+				$('#navbar-resources-li').removeClass('active');
 				show_history();
 			});
 
@@ -55,7 +58,18 @@ function prepare_page_load() {
 				$('#navbar-history-li').removeClass('active');
 				$('#navbar-faces-li').addClass('active');
 				$('#navbar-contact-li').removeClass('active');
+				$('#navbar-resources-li').removeClass('active');
 				showFacesPage();
+			});
+
+			// Resources navbar button listener
+			$('#navbar-resources-button').click(function() {
+				$('#navbar-home-li').removeClass('active');
+				$('#navbar-history-li').removeClass('active');
+				$('#navbar-faces-li').removeClass('active');
+				$('#navbar-contact-li').removeClass('active');
+				$('#navbar-resources-li').addClass('active');
+				show_resources();
 			});
 
 			// Contact navbar button listener
@@ -64,6 +78,7 @@ function prepare_page_load() {
 				$('#navbar-history-li').removeClass('active');
 				$('#navbar-faces-li').removeClass('active');
 				$('#navbar-contact-li').addClass('active');
+				$('#navbar-resources-li').removeClass('active');
 				prepareNickPage();
 			});
 
@@ -75,15 +90,17 @@ function prepare_page_load() {
 				$('#navbar-history-li').addClass('active');
 				$('#navbar-faces-li').removeClass('active');
 				$('#navbar-connect-li').removeClass('active')
+				$('#navbar-resources-li').removeClass('active');
 				show_history();
 			});
 
-			// Faces navbar button listener
+			// Faces carousel button listener
 			$('#carousel-faces-button').click(function() {
 				$('#navbar-home-li').removeClass('active');
 				$('#navbar-history-li').removeClass('active');
 				$('#navbar-faces-li').addClass('active');
 				$('#navbar-connect-li').removeClass('active')
+				$('#navbar-resources-li').removeClass('active');
 				showFacesPage();
 			});
 
@@ -107,7 +124,11 @@ function show_home(){
 }
 
 function show_history() {
-	prepareHistoryPage();
+	prepareHistoryPage(); // in history.js
+}
+
+function show_resources() {
+	prepareResourcesPage(); // in resources.js
 }
 
 function showFacesPage(){
@@ -128,6 +149,7 @@ function hide_all() {
 	$('#home-slides').hide();
 	$('#history-page').hide();
 	$('#faces-page').hide();
+	$('#resources-page').hide();
 	$('#profile').hide();
 	$('#footer-section').hide();
 	$('#timeline').hide();

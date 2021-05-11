@@ -23,7 +23,7 @@ LogicLayer = logic_layer.LogicLayer()
 def get_js__and_css_source():
 
 	# Add js files here as you create them
-	js_files = ['init.js','history.js','faces.js','nick.js', 'mdbFsscroller.min.js']
+	js_files = ['init.js','history.js','faces.js','nick.js', 'resources.js', 'mdbFsscroller.min.js']
 
 	css_files = ['style.css']
 

@@ -217,4 +217,4 @@ class FaceSwap:
         # Moving saved image to static folder
         move(this_scripts_path+"/../../"+filename, this_scripts_path+"/../../static/")
 
-        return filenames
+        return filename

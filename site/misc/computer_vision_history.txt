@@ -1,0 +1,62 @@
+1966: Humble beginnings
+
+	- 	Marvin Minsky at MIT asked his undergraduate student Gerald Jay Sussman
+		to “spend the summer linking a camera to a computer and getting the computer to describe
+		what it saw” 
+
+
+1970's: When computer vision first started out in the early 1970s, it was viewed as the
+visual perception component of an ambitious agenda to mimic human intelligence and to
+endow robots with intelligent behavior.
+
+	- 	Digital image processing
+	- 	Blocks world, line labeling
+	- 	Generalized cylinders
+	- 	Pattern recognition
+	- 	Stereo correspondence
+	- 	Intrinsic images
+	- 	Optical flow
+	- 	Structure from motion
+
+1980's: In the 1980s, a lot of attention was focused on more sophisticated mathematical
+techniques for performing quantitative image and scene analysis.
+
+	- 	Image pyramids
+	- 	Shape from shading, texture, and focus
+	- 	Physically-based modeling
+	- 	Regularization
+	- 	Markov Random Fields
+	- 	Kalman filters
+	- 	3D range data processing
+
+1990's: Newborn concepts become more active, taking on a more prominent role in computer vision.
+
+	- 	Projective invariants
+	- 	Factorization
+	- 	Physics-based vision
+	- 	Graph cuts
+	- 	Particle filtering
+
+2000's: This decade continued to deepen the interplay between the vision and graphics
+fields, but more importantly embraced data-driven and learning approachs as core components
+of vision.
+
+	- 	Energy-based segmentation
+	- 	Face recognition and detection
+	- 	Image-based modeling and rendering
+	- 	Texture synthesis and inpainting
+	- 	Computational photography
+
+2010's: The trend towards using large labeled (and also self-supervised) data sets to develop machine learning algorithms became a tidal wave that totally revolutionized the development of image recognition algorithms as well as other applications, such as denoising and optic flow, which previously used Bayesian and global optimization techniques.
+
+	- 	Feature-based recognition
+	- 	Category recognition
+	- 	Machine learning
+	- 	Modeling and tracking humans
+	- 	Semantic segmentation
+	- 	SLAM and VIO
+	- 	Deep Learning
+
+2020's: Incredible advances in the performance and reliability of computer vision algorithms, brought in part by the shift to machine learning and training on very large sets of real-world data. It has also seen the application of vision algorithms in myriad commercial and consumer scenarios.
+
+	- 	Vision and Language
