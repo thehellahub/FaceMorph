@@ -238,11 +238,11 @@ function funny_mirrors() {
 	$('#loader').show();
 	$('#faces-page-tracker').html('Page 4 of 4');
 	$('#faces-message').html('And the results are in!');
-	var img = $("#funny-mirrors-img-selector option:selected").text(); // @TODO: get selected img
-	var effect = $("#funny-mirrors-effect-selector option:selected").text(); // @TODO: get effect number
+	var img = $("#funny-mirrors-img-selector option:selected").text();
+	var effect = $("#funny-mirrors-effect-selector option:selected").text(); 
 	window.scrollTo(0, 0); // xcoordinate,ycoordinate -- scroll to top of page
 	cur_page = 4;
-	if (img == "Image 1"){
+	if (img == "Victim 1"){
 		img = img_1;
 	} else {
 		img = img_2
