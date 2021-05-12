@@ -18,7 +18,7 @@ Within the "site" directory are two files:
 
 REQUIREMENTS: 
 
-things_I_needed.txt lists out all the packages needed to run the application. Additionally, I'm using the anaconda3 python package & interpreter, so I'm not sure of what additional packages you'll need other than what I've listed if you're not running an anaconda3 python installation. Additionally I am running on a unix-based OS.
+things_I_needed.txt lists out all the packages needed to run the application. Additionally, I'm using the anaconda3 python package & interpreter, so I'm not sure of what additional packages you'll need other than what I've listed if you're not running an anaconda3 python installation. Lastly, I am running on a unix-based OS (macOS Catelina 10.15.7).
 
 TO RUN:
 python facemorph_server.py
