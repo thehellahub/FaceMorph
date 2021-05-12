@@ -253,8 +253,6 @@ function funny_mirrors() {
 		type: "POST",
 		data: {"img": img, "effect": effect},
 		success: function(result){
-			console.log("Hit success branch out of face morph ajax call :) ");
-			console.log(result)
 			$('#spinner').hide();
 			$('#loader').hide();
 			$("#result_img").html('<center><img src="../static/'+result+'"></center>');
