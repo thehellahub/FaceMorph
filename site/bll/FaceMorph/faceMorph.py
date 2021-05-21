@@ -6,6 +6,8 @@ from shutil import copyfile
 from shutil import move
 import time
 import glob
+import imageio
+
 
 class FaceMorph:
 
@@ -73,78 +75,113 @@ class FaceMorph:
 
         return img
 
-    def main(filename1,filename2,opacity):
-
-        this_scripts_path = os.path.dirname(os.path.realpath(__file__))
-
-        filename1 += '.jpg'
-        filename2 += '.jpg'
-        alpha = float(opacity)/100
-        
-        # Read images
-        img1 = cv2.imread(this_scripts_path + "/" + filename1)
-        img2 = cv2.imread(this_scripts_path + "/" + filename2)
-        
-        # Convert Mat to float data type
-        img1 = np.float32(img1)
-        img2 = np.float32(img2)
-
-        # Read array of corresponding points
-        points1 = FaceMorph.readPoints(this_scripts_path + "/" + filename1 + '.txt')
-        points2 = FaceMorph.readPoints(this_scripts_path + "/" + filename2 + '.txt')
-        points = []
-
-        # Compute weighted average point coordinates
-        for i in range(0, len(points1)):
-            x = ( 1 - alpha ) * points1[i][0] + alpha * points2[i][0]
-            y = ( 1 - alpha ) * points1[i][1] + alpha * points2[i][1]
-            points.append((x,y))
-
-
-        # Allocate space for final output
-        imgMorph = np.zeros(img1.shape, dtype = img1.dtype)
-
-        # Read triangles from tri.txt
-        with open(this_scripts_path + "/" + "tri.txt") as file :
-            for line in file :
-                x,y,z = line.split()
-                
-                x = int(x)
-                y = int(y)
-                z = int(z)
-                
-                t1 = [ points1[x], points1[y], points1[z]]
-                t2 = [ points2[x], points2[y], points2[z]]
-                t =  [ points[x],  points[y],  points[z] ]
-
-                # Morph one triangle at a time.
-                FaceMorph.morphTriangle(img1, img2, imgMorph, t1, t2, t, alpha)        
-
-        # Name of saved file
-        filename = "output_image." + str(time.time()) + ".jpg"
-
-        # Doesn't work for some reason?
-        # # Using cv2.imwrite() method
-        # # Saving the image in filepath
-        # filepath = this_scripts_path + '../../static/output_image.jpg'
-        # cv2.imwrite(os.path.join(filepath , filename), imgMorph) 
-        # print(filepath)
-        # print(filename)
-        # print(os.path.join(filepath , filename))
-          
-        # Using cv2.imwrite() method
-        # Saving the image in site dir
-        cv2.imwrite(filename, imgMorph)
+    def main(filename1,filename2):
 
         # Removing any potentially already-existing output_image.jpg file in the static folder
         try:
             for fl in glob.glob(this_scripts_path+"/../../static/output_image*.jpg"):
                 #Do what you want with the file
                 os.remove(fl)
+            for fl in glob.glob(this_scripts_path+"/../../static/output_image*.gif"):
+                #Do what you want with the file
+                os.remove(fl)
         except Exception as e:
-            print(e) 
+            pass
+
+        filename1 += '.jpg'
+        filename2 += '.jpg'
+        images = []
+        this_scripts_path = os.path.dirname(os.path.realpath(__file__))
+
+        for alpha_range in range(0,100):
+
+            alpha = alpha_range/100
+            
+            # Read images
+            img1 = cv2.imread(this_scripts_path + "/" + filename1)
+            img2 = cv2.imread(this_scripts_path + "/" + filename2)
+            
+            # Convert Mat to float data type
+            img1 = np.float32(img1)
+            img2 = np.float32(img2)
+
+            # Read array of corresponding points
+            points1 = FaceMorph.readPoints(this_scripts_path + "/" + filename1 + '.txt')
+            points2 = FaceMorph.readPoints(this_scripts_path + "/" + filename2 + '.txt')
+            points = []
+
+            # Compute weighted average point coordinates
+            for i in range(0, len(points1)):
+                x = ( 1 - alpha ) * points1[i][0] + alpha * points2[i][0]
+                y = ( 1 - alpha ) * points1[i][1] + alpha * points2[i][1]
+                points.append((x,y))
+
+
+            # Allocate space for final output
+            imgMorph = np.zeros(img1.shape, dtype = img1.dtype)
+
+            # Read triangles from tri.txt
+            with open(this_scripts_path + "/" + "tri.txt") as file :
+                for line in file :
+                    x,y,z = line.split()
+                    
+                    x = int(x)
+                    y = int(y)
+                    z = int(z)
+                    
+                    t1 = [ points1[x], points1[y], points1[z]]
+                    t2 = [ points2[x], points2[y], points2[z]]
+                    t =  [ points[x],  points[y],  points[z] ]
+
+                    # Morph one triangle at a time.
+                    FaceMorph.morphTriangle(img1, img2, imgMorph, t1, t2, t, alpha)        
+
+            # Name of saved file
+            filename = "output_image." + str(time.time()) + ".jpg"
+
+            print("Creating file: " + str(filename))
+
+            # Doesn't work for some reason?
+            # # Using cv2.imwrite() method
+            # # Saving the image in filepath
+            # filepath = this_scripts_path + '../../static/output_image.jpg'
+            # cv2.imwrite(os.path.join(filepath , filename), imgMorph) 
+            # print(filepath)
+            # print(filename)
+            # print(os.path.join(filepath , filename))
+              
+            # Using cv2.imwrite() method
+            # Saving the image in site dir
+            cv2.imwrite(filename, imgMorph)
+
+            images.append(filename)
+
+        # end for alpha_range
+
+
+        # making gif
+        print("Creating gif!")
+        gif_filename = "output_image." + str(time.time()) + ".gif"
+        with imageio.get_writer(gif_filename, mode='I') as writer:
+            for filename in images:
+                print("\tCreating gif.. Analyzing file: " + filename)
+                image = imageio.imread(filename)
+                writer.append_data(image) 
 
         # Moving saved image to static folder
-        move(this_scripts_path+"/../../"+filename, this_scripts_path+"/../../static/")
+        print("Moving gif file to static folder")
+        move(this_scripts_path+"/../../"+gif_filename, this_scripts_path+"/../../static/")
+        print("returning " + gif_filename)
 
-        return filename
+        # Removing any potentially already-existing output_image.jpg/gif file in the folder
+        try:
+            for fl in glob.glob(this_scripts_path+"/../../output_image*.jpg"):
+                #Do what you want with the file
+                os.remove(fl)
+            for fl in glob.glob(this_scripts_path+"/../../output_image*.gif"):
+                #Do what you want with the file
+                os.remove(fl)
+        except Exception as e:
+            pass
+
+        return gif_filename

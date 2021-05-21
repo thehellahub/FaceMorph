@@ -92,7 +92,26 @@ class FunnyMirrors:
         except Exception as e:
             print(e)
 
+        # Removing any potentially already-existing output_image.gif file in the static folder
+        try:
+            for fl in glob.glob(this_scripts_path+"/../../static/output_image*.gif"):
+                #Do what you want with the file
+                os.remove(fl)
+        except Exception as e:
+            pass
+
         # Moving saved image to static folder
         move(this_scripts_path+"/../../"+filename, this_scripts_path+"/../../static/")
+
+        # Removing any potentially already-existing output_image.jpg/gif file in the folder
+        try:
+            for fl in glob.glob(this_scripts_path+"/../../output_image*.jpg"):
+                #Do what you want with the file
+                os.remove(fl)
+            for fl in glob.glob(this_scripts_path+"/../../output_image*.gif"):
+                #Do what you want with the file
+                os.remove(fl)
+        except Exception as e:
+            pass
 
         return filename

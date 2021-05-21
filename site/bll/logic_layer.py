@@ -8,8 +8,8 @@ class LogicLayer:
 	def __init__(self):
 		self._oa = Object_Access()
 
-	def face_morph(self,img1,img2,opacity):
-		return FaceMorph.main(img1,img2,opacity)
+	def face_morph(self,img1,img2):
+		return FaceMorph.main(img1,img2)
 
 	def face_swap(self,img1,img2):
 		return FaceSwap.main(img1,img2)

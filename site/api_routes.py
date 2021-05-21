@@ -74,8 +74,8 @@ def load_page_html():
 def face_morph():	
 	img1 = request.form["img1"]
 	img2 = request.form["img2"]
-	opacity = request.form["opacity"]
-	return json.dumps(LogicLayer.face_morph(img1,img2,opacity))
+	#opacity = request.form["opacity"]
+	return json.dumps(LogicLayer.face_morph(img1,img2))
 
 @webapp.route("/face-swap", methods=["POST"])
 def face_swap():	

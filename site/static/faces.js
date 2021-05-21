@@ -106,12 +106,12 @@ function loadFacePageListeners(){
 	$('#carousel-facemorph-button').click(function() {
 		face_morph();
 	});
-	var slider = document.getElementById("myRange");
+	/*var slider = document.getElementById("myRange");
 	var output = document.getElementById("demo");
 	output.innerHTML = slider.value;
 	slider.oninput = function() {
 	  output.innerHTML = this.value;
-	}
+	}*/
 
 	// Face Swap button listener
 	$('#carousel-faceswap-button').click(function() {
@@ -190,13 +190,14 @@ function face_morph() {
 	$('#faces-message').html('And the results are in!');
 	window.scrollTo(0, 0); // xcoordinate,ycoordinate -- scroll to top of page
 	cur_page = 4;
-	var opacity = $('#demo').html();
-	console.log("Selected opacity value: " + opacity);
+	//var opacity = $('#demo').html();
+	//console.log("Selected opacity value: " + opacity);
 	$.ajax({
 		url: "/face-morph",
 		dataType: "json",
 		type: "POST",
-		data: {"img1": img_1, "img2": img_2, "opacity": opacity,},
+		//data: {"img1": img_1, "img2": img_2, "opacity": opacity,},
+		data: {"img1": img_1, "img2": img_2,},
 		success: function(result){
 			$('#spinner').hide();
 			$('#loader').hide();
