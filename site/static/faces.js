@@ -187,7 +187,7 @@ function face_morph() {
 	$('#spinner').show();
 	$('#loader').show();
 	$('#faces-page-tracker').html('Page 4 of 4');
-	$('#faces-message').html('And the results are in!');
+	$('#faces-message').html('Please wait for GIF to finish creating ...');
 	window.scrollTo(0, 0); // xcoordinate,ycoordinate -- scroll to top of page
 	cur_page = 4;
 	//var opacity = $('#demo').html();
@@ -202,6 +202,7 @@ function face_morph() {
 			$('#spinner').hide();
 			$('#loader').hide();
 			$("#result_img").html('<center><img src="../static/'+result+'"></center>');
+			$('#faces-message').html('And the results are in!');
 		}
 	});
 }
