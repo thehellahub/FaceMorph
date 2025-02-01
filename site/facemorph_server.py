@@ -1,28 +1,31 @@
 import setproctitle
 from gevent.pywsgi import WSGIServer
-from api_routes import webapp # where the magic happens
+from ROUTES.api_routes import webapp_api # where the api magic happens
 from flask import Flask, redirect, url_for, render_template, Blueprint, session, app, flash
 import os
 
-debug = True
 
-hostname = 'FaceMorph'
+class FaceMorph:
 
-app = Flask(__name__)
-app.register_blueprint(webapp)
+	def __init__(self):
+		self.debug = True
 
-app.config['UPLOAD_FOLDER'] = '/static/'
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+		self.hostname = 'FaceMorph'
 
-def main():
+		self.app = Flask(__name__)
+		self.app.register_blueprint(webapp_api)
 
-	#For developers, use this
-	app.run(debug=debug, host='127.0.0.1')
+		self.app.config['UPLOAD_FOLDER'] = '/static/'
+		self.app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
-	# For server, use this
-	# app.config['SERVER_NAME'] = 'facemorph.com:5000'	# only for running on server
-	# app.run(debug=debug)
+	def main(self):
 
-	# Magically calling route "/" in api_routes.py (O.o)
+		#For developers, use this
+		self.app.run(debug=self.debug, host='127.0.0.1')
 
-main()
+		# For server, use this
+		# self.app.config['SERVER_NAME'] = 'facemorph.com:5000';# only for running on server with custom domain settings. See MISC/custom_local_domain_note.txt
+		# self.app.run(debug=debug)
+
+facemorph_server = FaceMorph()
+facemorph_server.main()

@@ -23,7 +23,7 @@ html, body {
 }
 .carousel-inner img {
   width: 100%;
-  height: 100%
+  height: 20%
 }
 .carousel-caption {
   position: absolute;

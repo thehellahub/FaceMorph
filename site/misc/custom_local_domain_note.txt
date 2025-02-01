@@ -1,0 +1,4 @@
+# for custom domain setting on macOS
+vim /etc/hosts
+
+127.0.0.1 localhost localhost.localdomain facemorph.com
