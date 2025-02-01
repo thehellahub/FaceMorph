@@ -6,7 +6,9 @@
 Welcome to FaceMorph, a website to demonstrate some of the fun tutorials offered by opencv where you can mess with peoples' faces! How cool is that?! 
 
 VIDEO DEMOS:
+
 	https://www.youtube.com/watch?v=VoBeH_glbIo
+	
 	https://www.youtube.com/watch?v=zoyvud3wRPw
 
 INSTRUCTIONS:
